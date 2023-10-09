@@ -11,8 +11,7 @@ export default class UserCrud extends Component {
     render() {
         return (
             <Main {...headerProps}>
-                {this.renderForm()}
-                {this.renderTable()}
+                Cadastro de Usiário
             </Main>
         )
     }
