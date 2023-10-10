@@ -22,6 +22,23 @@ export default class UserCrud extends Component {
         this.setState({ user: initialState.user })
     }
 
+    save() {
+        const user = this.state.user
+        const method = user.id ? 'put' : 'post'
+        const url = user.id ? `${baseUrl}/${user.id}` : baseUrl
+        axios[method](url, user)
+            .then(resp => {
+                const list = this.getUpdatedList(resp.data)
+                this.setState({ user: initialState.user, list })
+            })
+    }
+
+    getUpdatedList(user, add = true) {
+        const list = this.state.list.filter(u => u.id !== user.id)
+        if(add) list.unshift(user)
+        return list
+    }
+
     render() {
         return (
             <Main {...headerProps}>
