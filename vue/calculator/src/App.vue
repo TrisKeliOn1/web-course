@@ -6,8 +6,10 @@
 </template>
 
 <script>
+import Calculator from "./main/Calculator"
+
 export default {
-    
+    components: { Calculator }
 }
 </script>
 
