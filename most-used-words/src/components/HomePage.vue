@@ -12,10 +12,10 @@
             >
             </v-file-input>
         </v-form>
-        
+
         <div class="pills">
             <PillComponent v-for="item in groupedWords" :word="item.word"
-                :amount="item.amount" :key="item.word"/>
+            :amount="item.amount" :key="item.word"/>
         </div>
     </div>
 </template>
@@ -23,8 +23,8 @@
 <script>
 import PillComponent from './PillComponent.vue';
 import { ipcRenderer } from 'electron';
-export default{
-    components: {
+export default {
+    components:{
         PillComponent
     },
     data: function (){
@@ -43,7 +43,9 @@ export default{
         }
     }
 }
+
 </script>
+
 
 <style scoped>
 .home{
@@ -51,5 +53,7 @@ export default{
 }
 .pills{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 </style>
