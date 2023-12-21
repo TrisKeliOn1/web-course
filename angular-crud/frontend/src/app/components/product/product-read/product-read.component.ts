@@ -14,7 +14,7 @@ export class ProductReadComponent implements OnInit {
   
   constructor(private productService: ProductService) {
     this.products = [];
-    this.displayedColumns = ['id', 'name', 'price']
+    this.displayedColumns = ['id', 'name', 'price', 'action']
   }
 
   ngOnInit(): void {
