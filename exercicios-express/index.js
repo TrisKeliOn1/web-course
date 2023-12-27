@@ -1,6 +1,15 @@
 const express = require('express')
 const app = express()
 
+const saudacao = require('./saudacaoMid')
+
+app.use(saudacao('Guilherme'))
+
+app.use((req, res, next) => {
+    console.log('Antes...')
+    next()
+})
+
 app.get('/opa', (req, res, next) => {
     console.log('Durante...')
     res.json({
@@ -26,6 +35,9 @@ app.get('/opa', (req, res, next) => {
     // res.send('<h1>Estou bem!</h1><br><br><h2>Tipo é HTML!</h2>')
 })
 
+app.use((req, res) => {
+    console.log('Depois...')
+})
 
 app.listen(3001, () => {
     console.log('Backend executando...')
