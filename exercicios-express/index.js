@@ -1,6 +1,11 @@
 const express = require('express')
 const app = express()
 
-app.listen(3000, () => {
+app.use((req, res, next) => {
+    console.log('Antes...')
+    next()
+})
+
+app.listen(3001, () => {
     console.log('Backend executando...')
 })
